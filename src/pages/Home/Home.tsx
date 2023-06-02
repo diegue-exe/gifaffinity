@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import './App.css'
+import './Home.css'
 
-function App() {
+function Home() {
   const [greeting, setGreeting] = useState('')
 
   const getGreeting = async () => {
@@ -17,4 +17,4 @@ function App() {
   return <div>{greeting}</div>
 }
 
-export default App
+export default Home
