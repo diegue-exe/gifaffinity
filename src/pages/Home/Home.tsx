@@ -1,16 +1,15 @@
 import React from 'react'
+import { Gif } from '../../components/atoms/Gif'
+import gatito from '../../assets/images/gifs/gatito.gif'
 import spongeBob from '../../assets/images/gifs/spongeBob.gif'
 import stewie from '../../assets/images/gifs/stewie.gif'
 
 function Home() {
   return (
     <div>
-      <img src={spongeBob} alt="bob esponja enfadado" />
-      <img src={stewie} alt="gatito" />
-      <img
-        src="https://media.tenor.com/oeMHiLW62hAAAAAC/pretty-please-kitty-softpaws.gif"
-        alt="stewie"
-      />
+      <Gif route={gatito} alt={'gatito'} />
+      <Gif route={stewie} alt={'stewie'} />
+      <Gif route={spongeBob} alt={'bob esponja enfadado'} />
     </div>
   )
 }
