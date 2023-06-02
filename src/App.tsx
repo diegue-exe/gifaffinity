@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-  return <div>Hello World</div>
+  const [greeting, setGreeting] = useState('')
+
+  const getGreeting = async () => {
+    const res = await fetch('/hello')
+    const hello = await res.json()
+    setGreeting(hello.text)
+  }
+
+  useEffect(() => {
+    getGreeting()
+  }, [])
+
+  return <div>{greeting}</div>
 }
 
 export default App
