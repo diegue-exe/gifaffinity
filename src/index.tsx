@@ -1,8 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import './assets/styles/reset.css'
-import './assets/styles/reboot.css'
 import Home from './pages/Home/Home'
 import reportWebVitals from './reportWebVitals'
 
