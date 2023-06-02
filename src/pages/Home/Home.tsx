@@ -1,20 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import './Home.css'
+import React from 'react'
+import spongeBob from '../../assets/images/gifs/spongeBob.gif'
 
 function Home() {
-  const [greeting, setGreeting] = useState('')
-
-  const getGreeting = async () => {
-    const res = await fetch('/hello')
-    const hello = await res.json()
-    setGreeting(hello.text)
-  }
-
-  useEffect(() => {
-    getGreeting()
-  }, [])
-
-  return <div>{greeting}</div>
+  return <img src={spongeBob} alt="bob esponja enfadado" />
 }
 
 export default Home
