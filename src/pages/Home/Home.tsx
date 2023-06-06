@@ -1,17 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Home.css'
 import { Gif } from '../../components/atoms/Gif'
-import gatito from '../../assets/images/gifs/gatito.gif'
-import spongeBob from '../../assets/images/gifs/spongeBob.gif'
-import stewie from '../../assets/images/gifs/stewie.gif'
+
+type Gif = {
+  id: string
+  url: string
+  name: string
+}
 
 function Home() {
+  const [gifs, setGifs] = useState<Gif[]>([])
+
+  useEffect(() => {
+    const getGifs = async () => {
+      const response = await fetch('https://mis-gifs.com/gifs')
+      const gifsResponse: Gif[] = await response.json()
+      setGifs(gifsResponse)
+    }
+    getGifs()
+  }, [])
 
   return (
     <div className="container">
-      <Gif route={gatito} alt={'gatito'} />
-      <Gif route={stewie} alt={'stewie'} />
-      <Gif route={spongeBob} alt={'bob esponja enfadado'} />
+      {gifs.map((gif) => (
+        <Gif route={gif.url} alt={gif.name} key={gif.id}/>
+      ))}
     </div>
   )
 }
