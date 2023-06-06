@@ -2,10 +2,14 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Home from './Home'
 
-test('gif shows in the document', async () => {
-  render(<Home />)
-
-  expect(await screen.findByAltText('gatito')).toBeInTheDocument()
-  expect(await screen.findByAltText('bob esponja enfadado')).toBeInTheDocument()
-  expect(await screen.findByAltText('stewie')).toBeInTheDocument()
+describe('Home', () => {
+  it('gif shows in the document', async () => {
+    render(<Home />)
+  
+    expect(await screen.findByRole('img', { name: 'gatito' })).toBeInTheDocument()
+    expect(
+      await screen.findByRole('img', { name: 'bob esponja enfadado' }),
+    ).toBeInTheDocument()
+    expect(await screen.findByRole('img', { name: 'stewie' })).toBeInTheDocument()
+  })
 })

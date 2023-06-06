@@ -6,6 +6,7 @@ import spongeBob from '../../assets/images/gifs/spongeBob.gif'
 import stewie from '../../assets/images/gifs/stewie.gif'
 
 function Home() {
+
   return (
     <div className="container">
       <Gif route={gatito} alt={'gatito'} />
