@@ -10,17 +10,17 @@ export const handlers = [
       ctx.json([
         {
           id: 'AAA001',
-          url: 'https://tenor.com/es/view/cat-cat-jumping-cat-excited-excited-dance-gif-19354605',
+          url: 'https://media.tenor.com/arqlNu8gyJYAAAAC/cat-cat-jumping.gif',
           name: 'happy happy cat',
         },
         {
           id: 'AAA002',
-          url: 'https://tenor.com/es/view/spongebob-angry-annoyed-gif-12280503',
+          url: 'https://media.tenor.com/vOZQ9IrT4EcAAAAd/spongebob-angry.gif',
           name: 'bob esponja enfadado',
         },
         {
           id: 'AAA003',
-          url: 'https://giphy.com/gifs/sad-pepe-pKPbddZ0OSoik',
+          url: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2IwODEyMjZmOGY4MjBiZGI4ZDEyNTVhNjAzYThhYzYzMDdjNmJkNCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/pKPbddZ0OSoik/giphy.gif',
           name: 'stewie',
         },
       ]),

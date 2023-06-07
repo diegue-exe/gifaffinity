@@ -19,11 +19,11 @@ function Home() {
     }
     getGifs()
   }, [])
-
+console.log(gifs)
   return (
     <div className="container">
       {gifs.map((gif) => (
-        <Gif route={gif.url} alt={gif.name} key={gif.id}/>
+        <Gif route={gif.url} alt={gif.name}/>
       ))}
     </div>
   )
