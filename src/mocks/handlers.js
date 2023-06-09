@@ -15,8 +15,8 @@ export const handlers = [
         },
         {
           id: 'AAA002',
-          url: 'https://media.tenor.com/vOZQ9IrT4EcAAAAd/spongebob-angry.gif',
-          name: 'bob esponja enfadado',
+          url: 'https://media.tenor.com/oeMHiLW62hAAAAAd/pretty-please-kitty-softpaws.gif',
+          name: 'gatito',
         },
         {
           id: 'AAA003',

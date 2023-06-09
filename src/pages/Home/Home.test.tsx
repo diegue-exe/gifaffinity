@@ -9,7 +9,7 @@ describe('Home', () => {
       await screen.findByRole('img', { name: 'happy happy cat' }),
     ).toBeInTheDocument()
     expect(
-      await screen.findByRole('img', { name: 'bob esponja enfadado' }),
+      await screen.findByRole('img', { name: 'gatito' }),
     ).toBeInTheDocument()
     expect(
       await screen.findByRole('img', { name: 'stewie' }),

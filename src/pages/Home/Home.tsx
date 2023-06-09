@@ -19,7 +19,6 @@ function Home() {
     }
     getGifs()
   }, [])
-console.log(gifs)
   return (
     <div className="container">
       {gifs.map((gif) => (
