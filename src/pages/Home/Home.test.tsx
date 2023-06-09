@@ -30,6 +30,6 @@ describe('Home', () => {
     )
 
     render(<Home />)
-    expect(await screen.findByText('Error')).toBeInTheDocument()
+    expect(await screen.findByText('Error payaso')).toBeInTheDocument()
   })
 })

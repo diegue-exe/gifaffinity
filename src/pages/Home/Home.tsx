@@ -9,6 +9,7 @@ const Home = () => {
   const [gifs, setGifs] = useState<GifModel[]>([])
 
   const getGifs = async () => {
+    console.log(await fetchGifs())
     setGifs(await fetchGifs())
   }
 
@@ -25,7 +26,7 @@ const Home = () => {
         {hasGifs ? (
           gifs.map((gif) => <Gif route={gif.url} alt={gif.name} />)
         ) : (
-          <p>Error</p>
+          <p>Error payaso</p>
         )}
       </div>
     </div>
