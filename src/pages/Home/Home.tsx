@@ -8,11 +8,11 @@ import { fetchGifs } from '../../services/fetchGifs'
 const Home = () => {
   const [gifs, setGifs] = useState<GifModel[]>([])
 
+  const getGifs = async () => {
+    setGifs(await fetchGifs())
+  }
+
   useEffect(() => {
-    const getGifs = async () => {
-      const gifsResponse = await fetchGifs()
-      setGifs(gifsResponse)
-    }
     getGifs()
   }, [])
 
