@@ -1,35 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
 import { Gif } from '../../components/atoms/Gif'
+import { GifModel } from '../../models/GifModel'
 import { Header } from '../../components/atoms/Header'
-import { SearchBar } from '../../components/atoms/SearchBar'
-
-interface Gif {
-  id: string
-  url: string
-  name: string
-}
+import { fetchGifs } from '../../services/fetchGifs'
 
 const Home = () => {
-  const [gifs, setGifs] = useState<Gif[]>([])
+  const [gifs, setGifs] = useState<GifModel[]>([])
 
   useEffect(() => {
     const getGifs = async () => {
-      const response = await fetch('https://mis-gifs.com/gifs')
-      const gifsResponse: Gif[] = await response.json()
+      const gifsResponse = await fetchGifs()
       setGifs(gifsResponse)
     }
     getGifs()
   }, [])
 
+  const hasGifs = gifs.length > 0
+
   return (
     <div className="container">
       <Header />
-    {/* <SearchBar /> */}
       <div className="gif-container">
-        {gifs.map((gif) => (
-          <Gif route={gif.url} alt={gif.name} />
-        ))}
+        {hasGifs ? (
+          gifs.map((gif) => <Gif route={gif.url} alt={gif.name} />)
+        ) : (
+          <p>Error</p>
+        )}
       </div>
     </div>
   )

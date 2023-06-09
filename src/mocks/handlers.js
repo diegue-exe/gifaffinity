@@ -30,13 +30,13 @@ export const handlers = [
         },
         {
           id: 'AAA005',
-          url: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2IwODEyMjZmOGY4MjBiZGI4ZDEyNTVhNjAzYThhYzYzMDdjNmJkNCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/pKPbddZ0OSoik/giphy.gif',
-          name: 'stewie',
+          url: 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTdhYzM1MDJmMTVkYzE0M2U5OWZkNjhmMGE3MGE1OWY3NDZkNTc4NiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/Qfsx3YWNr2j3N7odCH/giphy.gif',
+          name: 'argentina',
         },
         {
           id: 'AAA006',
           url: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2IwODEyMjZmOGY4MjBiZGI4ZDEyNTVhNjAzYThhYzYzMDdjNmJkNCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/pKPbddZ0OSoik/giphy.gif',
-          name: 'stewie',
+          name: 'not stewie',
         },
       ]),
     )
