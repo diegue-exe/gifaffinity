@@ -1,8 +1,27 @@
-body{
-  margin:0;
-}
-html{
-  background: linear-gradient(45deg, var(--purple), var(--lightYellow));
-  height: 100%;
+body {
+  margin: 0;
 }
 
+html {
+  background: no-repeat
+    linear-gradient(45deg, var(--purple), var(--lightYellow));
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: var(--maxWidth-desktopLarge);
+  margin: auto;
+  margin-top: var(--spacing-large);
+}
+
+.gif-container {
+  display: grid;
+  grid-gap: var(--spacing-medium);
+  grid-template-columns: repeat(5, 200px);
+}
+/* @media only screen and (width <= 480px) {
+  .container {
+
+
+  }
+} */
