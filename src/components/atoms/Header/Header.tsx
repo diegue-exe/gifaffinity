@@ -1,9 +1,11 @@
 import React from 'react'
 import logo from '../../../assets/images/logo/GuifaffinityLogo.svg'
-
-
-
+import './Header.css'
 
 export const Header = () => {
-  return <img src={logo} alt="logo" />;
+  return (
+    <div className="header-container">
+      <img src={logo} alt="logo" />
+    </div>
+  )
 }

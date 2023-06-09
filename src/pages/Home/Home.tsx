@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
 import { Gif } from '../../components/atoms/Gif'
+import { Header } from '../../components/atoms/Header'
+import { SearchBar } from '../../components/atoms/SearchBar'
 
-type Gif = {
+interface Gif {
   id: string
   url: string
   name: string
 }
 
-function Home() {
+const Home = () => {
   const [gifs, setGifs] = useState<Gif[]>([])
 
   useEffect(() => {
@@ -19,11 +21,16 @@ function Home() {
     }
     getGifs()
   }, [])
+
   return (
     <div className="container">
-      {gifs.map((gif) => (
-        <Gif route={gif.url} alt={gif.name}/>
-      ))}
+      <Header />
+    {/* <SearchBar /> */}
+      <div className="gif-container">
+        {gifs.map((gif) => (
+          <Gif route={gif.url} alt={gif.name} />
+        ))}
+      </div>
     </div>
   )
 }

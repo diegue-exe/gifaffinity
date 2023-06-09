@@ -1,0 +1,7 @@
+.searchBar {
+  margin-bottom: var(--spacing-xlarge);
+  padding: var(--spacing-mini) 0px var(--spacing-mini) var(--spacing-base);
+  width: 100%;
+  border-radius: 1rem;
+  border: none;
+}
