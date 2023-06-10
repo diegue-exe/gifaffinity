@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
 import Home from './Home'
-import { handlers } from '../../mocks/handlers'
 import { setupServer } from 'msw/lib/node'
 import { rest } from 'msw'
 
