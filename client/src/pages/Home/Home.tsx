@@ -7,30 +7,45 @@ import { fetchGifs } from '../../services/fetchGifs'
 
 const Home = () => {
   const [gifs, setGifs] = useState<GifModel[]>([])
+  const [isLoading, setIsloading] = useState<boolean>(true)
 
   const getGifs = async () => {
-    console.log(await fetchGifs())
-    setGifs(await fetchGifs())
+    const data = await fetchGifs()
+    const mappedGifs = data.memes.map((gif) => {
+      return {
+        id: gif.id,
+        url: gif.images.small.url,
+        name: gif.title,
+      }
+    })
+    setGifs(mappedGifs)
+    setIsloading(false)
   }
 
   useEffect(() => {
     getGifs()
   }, [])
 
+  if (isLoading) {
+    return <p>Loading</p>
+  }
+
   const hasGifs = gifs.length > 0
 
-  return (
-    <div className="container">
-      <Header />
-      <div className="gif-container">
-        {hasGifs ? (
-          gifs.map((gif) => <Gif route={gif.url} alt={gif.name} />)
-        ) : (
-          <p>Error payaso</p>
-        )}
+  if (hasGifs) {
+    return (
+      <div className="container">
+        <Header />
+        <div className="gif-container">
+          {gifs.map((gif) => (
+            <Gif key={gif.id} route={gif.url} alt={gif.name} />
+          ))}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
+
+  return <p>Error payaso</p>
 }
 
 export default Home

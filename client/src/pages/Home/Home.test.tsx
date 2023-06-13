@@ -1,34 +1,33 @@
 import { render, screen } from '@testing-library/react'
 import Home from './Home'
-import { setupServer } from 'msw/lib/node'
 import { rest } from 'msw'
-
-const server = setupServer()
+import { server } from '../../mocks/server'
 
 describe('Home', () => {
   it('gif shows in the document', async () => {
     render(<Home />)
 
     expect(
-      await screen.findByRole('img', { name: 'happy happy cat' }),
+      await screen.findByRole('img', { name: 'Heat Wave 80S GIF' }),
     ).toBeInTheDocument()
     expect(
-      await screen.findByRole('img', { name: 'gatito' }),
+      await screen.findByRole('img', { name: 'Funny Gif Lol GIF by MOODMAN' }),
     ).toBeInTheDocument()
     expect(
-      await screen.findByRole('img', { name: 'stewie' }),
+      await screen.findByRole('img', { name: 'Movie Brazil GIF by MOODMAN' }),
     ).toBeInTheDocument()
   })
 
-  const apiPath = 'https://mis-gifs.com'
+  const apiPath = 'https://localhost:3000'
   it('shows error when no GIF available', async () => {
     server.use(
-      rest.get(`${apiPath}/gifs`, (req, res, ctx) => {
-        return res(ctx.json([]))
+      rest.get('http://localhost:3000/api/memes', (req, res, ctx) => {
+        return res(ctx.json({ memes: [] }))
       }),
     )
 
     render(<Home />)
+
     expect(await screen.findByText('Error payaso')).toBeInTheDocument()
   })
 })
