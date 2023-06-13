@@ -3,6 +3,8 @@ import './Home.css'
 import { Gif } from '../../components/atoms/Gif'
 import { GifModel } from '../../models/GifModel'
 import { Header } from '../../components/atoms/Header'
+import { SearchBar } from '../../components/atoms/SearchBar'
+
 import { fetchGifs } from '../../services/fetchGifs'
 
 const Home = () => {
@@ -36,6 +38,9 @@ const Home = () => {
     return (
       <div className="container">
         <Header />
+        <div className="searchbar-container">
+          <SearchBar />
+        </div>
         <div className="gif-container">
           {gifs.map((gif) => (
             <Gif key={gif.id} route={gif.url} alt={gif.name} />

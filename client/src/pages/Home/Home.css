@@ -18,6 +18,11 @@ html {
   display: grid;
   grid-gap: var(--spacing-medium);
   grid-template-columns: repeat(5, 200px);
+  justify-content: center;
+}
+
+.searchbar-container{
+display:flex;
 }
 /* @media only screen and (width <= 480px) {
   .container {
