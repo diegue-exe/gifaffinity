@@ -5,29 +5,16 @@ import { Gif } from '../../components/atoms/Gif'
 import { GifModel } from '../../models/GifModel'
 import { Header } from '../../components/atoms/Header'
 import { SearchBar } from '../../components/atoms/SearchBar'
-import { fetchGifs } from '../../services/fetchGifs'
 import arrow from '../../assets/images/elements/arrow.svg'
-import { GifDTO } from '../../models/GifDTO'
+import { GifService } from '../../services/Gif.service'
 
 const Home = () => {
   const [gifs, setGifs] = useState<GifModel[]>([])
   const [isLoading, setIsloading] = useState<boolean>(true)
 
-  // TODO customHook
-
-  const mapGifs = (data: GifDTO[]): GifModel[] => {
-    return data.map((gif) => {
-      return {
-        id: gif.id,
-        url: gif.images.small.url,
-        name: gif.title,
-      }
-    })
-  }
-
   const updateStates = async () => {
-    const data = await fetchGifs()
-    const mappedGifs: GifModel[] = mapGifs(data)
+    const data = await GifService.fetch()
+    const mappedGifs: GifModel[] = GifService.map(data)
     setGifs(mappedGifs)
     setIsloading(false)
   }
