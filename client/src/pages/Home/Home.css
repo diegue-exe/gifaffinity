@@ -17,16 +17,29 @@ html {
 .gif-container {
   display: grid;
   grid-gap: var(--spacing-medium);
-  grid-template-columns: repeat(5, 200px);
+  grid-template-columns: repeat(auto-fill, 200px);
   justify-content: center;
 }
 
 .searchbar-container{
-display:flex;
+  display:flex;
 }
-/* @media only screen and (width <= 480px) {
-  .container {
 
+.header-text {
+  font-size: var(--font-h2);
+  line-height: var(--lineheight-h2);
+  color: var(--white);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
 
-  }
-} */
+.flecha{
+  height: auto;
+}
+
+.text-container {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 1.25rem;
+}
+/* TODO responsive */
