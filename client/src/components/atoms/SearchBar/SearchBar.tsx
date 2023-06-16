@@ -1,5 +1,5 @@
 import './SearchBar.css'
-import searchIcon from '../../../assets/images/elements/searchIcon.svg'
+import searchButton from '../../../assets/images/elements/searchButton.svg'
 
 export const SearchBar = () => {
   return (
@@ -9,7 +9,7 @@ export const SearchBar = () => {
         className="searchBar"
         placeholder="¿Que quieres buscar? ¡Encuéntralo!"
       />
-      <img src={searchIcon} alt="search icon" className="icon" />
+      <img src={searchButton} alt="search icon" className="icon" />
     </div>
   )
 }
