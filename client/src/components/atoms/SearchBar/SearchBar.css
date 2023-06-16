@@ -1,7 +1,23 @@
+
+.search-container {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+}
+
+.search-container .icon{
+  position:absolute;
+  cursor:pointer;
+  width: 47px;
+  height: 47px;
+  justify-self: end;
+}
+
 .searchBar {
   margin-bottom: var(--spacing-xlarge);
   padding: var(--spacing-mini) 0px var(--spacing-mini) var(--spacing-base);
   width: 100%;
   border-radius: 1rem;
   border: none;
+  position: relative;
 }
