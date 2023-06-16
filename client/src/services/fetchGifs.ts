@@ -1,5 +1,4 @@
 import { GifDTO } from '../models/GifDTO'
-type Response = { memes: GifDTO[] }
 
 const apiUrl = 'http://localhost:3000'
 
@@ -9,6 +8,7 @@ export const fetchGifs = async () => {
   `,
     { mode: 'cors' },
   )
-  const gifsResponse: Response = await response.json()
-  return gifsResponse
+  const gifsResponse = await response.json()
+  const memes: GifDTO[] = gifsResponse.memes
+  return memes
 }
