@@ -34,13 +34,26 @@ html {
   font-weight: 700;
 }
 
-.flecha{
-  height: auto;
+@media screen and (max-width: 70.75rem){
+  .text-container {
+    gap: 0px;
+    justify-content: center;
+  }
+  .container {
+    padding: 1.5rem;
+  }
+  .flecha{
+    width: 30px;
+  }
+  .header-text {
+    font-size: var(--font-h3);
+    line-height: var(--lineheight-h3);
+  }
 }
 
 .text-container {
   display: flex;
   margin-bottom: 30px;
   gap: 1.25rem;
+  width: 100%;
 }
-/* TODO responsive */

@@ -37,7 +37,7 @@ const Home = () => {
           <SearchBar />
         </div>
         <div className="text-container">
-          <img src={arrow} alt="flecha" />
+          <img src={arrow} alt="flecha" className="flecha" />
           <h2 className="header-text">Los guif más trendings del momento</h2>
         </div>
 
