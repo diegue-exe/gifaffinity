@@ -1,7 +1,7 @@
 import { GifDTO } from '../models/GifDTO'
 import { GifModel } from '../models/GifModel'
 
-const apiUrl = 'http://192.168.2.179:3000'
+const apiUrl = 'http://192.168.2.19:3000'
 
 export const GifService = {
   fetch: async () => {

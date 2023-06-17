@@ -33,3 +33,18 @@ describe("/api/memes", () => {
     expect(response.body.memes).toHaveLength(50);
   });
 });
+
+describe("/api/search", () => {
+  let app: Express;
+
+  beforeEach(() => {
+    const adapter = new Memory<DatabaseSchema>("");
+    const db = lowdb(adapter);
+    db.defaults(dbData).write();
+    app = createApp(db);
+  });
+
+  it("endpoint exists", async () => {
+    await request(app).get("/api/search").expect(200);
+  });
+});
