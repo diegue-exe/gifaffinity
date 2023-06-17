@@ -47,4 +47,9 @@ describe("/api/search", () => {
   it("endpoint exists", async () => {
     await request(app).get("/api/search").expect(200);
   });
+
+  it("returns an array", async () => {
+    const response = await request(app).get("/api/search");
+    expect(response.body.memes).toBeInstanceOf(Array);
+  });
 });
