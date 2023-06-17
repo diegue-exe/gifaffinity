@@ -8,3 +8,9 @@ routes.get("/memes", (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   res.json({ memes: memes }).status(200);
 });
+
+routes.get("/search", (req, res) => {
+  const db = req.context.db;
+  res.set("Access-Control-Allow-Origin", "*");
+  res.sendStatus(200);
+});
