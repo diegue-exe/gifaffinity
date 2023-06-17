@@ -12,5 +12,5 @@ routes.get("/memes", (req, res) => {
 routes.get("/search", (req, res) => {
   const db = req.context.db;
   res.set("Access-Control-Allow-Origin", "*");
-  res.sendStatus(200);
+  res.json({ memes: [] }).status(200);
 });
