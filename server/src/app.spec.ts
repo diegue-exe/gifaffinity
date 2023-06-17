@@ -5,6 +5,7 @@ import Memory from "lowdb/adapters/Memory";
 import lowdb from "lowdb";
 import { Express } from "express";
 import dbData from "./fixtures/db.json";
+import { Meme } from "./models/Meme";
 
 describe("/api/memes", () => {
   let app: Express;
@@ -45,11 +46,19 @@ describe("/api/search", () => {
   });
 
   it("endpoint exists", async () => {
-    await request(app).get("/api/search").expect(200);
+    await request(app).get("/api/search?keyword=cat").expect(200);
   });
 
   it("returns an array", async () => {
-    const response = await request(app).get("/api/search");
+    const response = await request(app).get("/api/search?keyword=cat");
     expect(response.body.memes).toBeInstanceOf(Array);
+  });
+
+  it("returns an array with cats", async () => {
+    const response = await request(app).get("/api/search?keyword=cat");
+    const memes: Meme[] = await response.body.memes;
+    memes.forEach((meme: Meme) => {
+      expect(meme.title.toLowerCase()).toContain("cat");
+    });
   });
 });
