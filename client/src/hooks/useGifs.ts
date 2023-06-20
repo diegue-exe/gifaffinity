@@ -24,6 +24,8 @@ const useGifs = ({ keyword }: { keyword: string }) => {
         const hasGifs = gifs.length > 0
         if (!hasGifs) {
           setEmptySearch(true)
+        } else {
+          setEmptySearch(false)
         }
       } catch {
         setLoadError(true)

@@ -41,9 +41,11 @@ const Home = () => {
           <h2 className="header-text">Los guif más trendings del momento</h2>
         </div>
         {/* TODO extraer a componente */}
-        <div className="fullscreen-container">
-          <h2 className="header-text">No hay GIFs</h2>
+        <div className="error-container">
           <img src={payaso} alt="payaso" width={150} height={150} />
+          <h2 className="header-text">
+            No hay GIFs con la búsqueda '{keyword}'
+          </h2>
         </div>
       </div>
     )
