@@ -6,7 +6,7 @@ import { Header } from '../../components/atoms/Header'
 import { SearchBar } from '../../components/atoms/SearchBar'
 import arrow from '../../assets/images/elements/arrow.svg'
 import useGifs from '../../hooks/useGifs'
-import payaso from '../../assets/images/elements/payaso.png'
+import payaso from '../../assets/images/elements/payaso.gif'
 
 const Home = () => {
   const [keyword, setKeyword] = useState('')
@@ -24,7 +24,7 @@ const Home = () => {
     return (
       <div className="fullscreen-container">
         <h2 className="header-text">No hay GIFs</h2>
-        <img src={payaso} alt="payaso" width={150} height={150} />
+        <img src={payaso} alt="payaso" width={300} height={300} />
       </div>
     )
   }
@@ -42,7 +42,7 @@ const Home = () => {
         </div>
         {/* TODO extraer a componente */}
         <div className="error-container">
-          <img src={payaso} alt="payaso" width={150} height={150} />
+          <img src={payaso} alt="payaso" width={300} height={300} />
           <h2 className="header-text">
             No hay GIFs con la búsqueda '{keyword}'
           </h2>
