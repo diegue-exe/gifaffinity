@@ -1,33 +1,39 @@
 import { useEffect, useState } from 'react'
-
 import { GifService } from '../services/Gif.service'
 import { GifModel } from '../models/GifModel'
+import { GifDTO } from '../models/GifDTO'
 
-const useGifs = () => {
+const useGifs = ({ keyword }: { keyword: string }) => {
   const [gifs, setGifs] = useState<GifModel[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
-  const [hasError, setHasError] = useState<boolean>(false)
+  const [loadError, setLoadError] = useState<boolean>(false)
+  const [emptySearch, setEmptySearch] = useState<boolean>(false)
 
   useEffect(() => {
     ;(async () => {
+      let gifs: GifDTO[]
       try {
-        const gifs = await GifService.fetch()
-        const hasGifs = gifs.length > 0
-        if (hasGifs) {
-          const mappedGifs = GifService.map(gifs)
-          setGifs(mappedGifs)
+        if (keyword === '') {
+          gifs = await GifService.fetch()
         } else {
-          setHasError(true)
+          gifs = await GifService.search(keyword)
+        }
+        const mappedGifs = GifService.map(gifs)
+        setGifs(mappedGifs)
+
+        const hasGifs = gifs.length > 0
+        if (!hasGifs) {
+          setEmptySearch(true)
         }
       } catch {
-        setHasError(true)
+        setLoadError(true)
       } finally {
         setIsLoading(false)
       }
     })()
-  }, [])
+  }, [keyword])
 
-  return { gifs, isLoading, hasError }
+  return { gifs, isLoading, loadError, emptySearch }
 }
 
 export default useGifs

@@ -24,4 +24,14 @@ export const GifService = {
       }
     })
   },
+  search: async (keyword: string) => {
+    try {
+      const response = await fetch(`${apiUrl}/api/search?keyword=${keyword}`)
+      const gifsResponse = await response.json()
+      const gifs: GifDTO[] = gifsResponse.gifs
+      return gifs
+    } catch (error) {
+      throw error
+    }
+  },
 }

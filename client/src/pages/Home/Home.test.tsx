@@ -22,7 +22,7 @@ describe('Home', () => {
   it('shows error when no GIF available', async () => {
     server.use(
       rest.get(`${apiPath}/api/gifs`, (req, res, ctx) => {
-        return res(ctx.json({ gifs: [] }))
+        return res(ctx.json({}))
       }),
     )
     render(<Home />)

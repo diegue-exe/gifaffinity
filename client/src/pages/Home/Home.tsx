@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../assets/styles/reset.css'
 import './Home.css'
 import { Gif } from '../../components/atoms/Gif'
@@ -9,7 +9,8 @@ import useGifs from '../../hooks/useGifs'
 import payaso from '../../assets/images/elements/payaso.png'
 
 const Home = () => {
-  const { gifs, isLoading, hasError } = useGifs()
+  const [keyword, setKeyword] = useState('')
+  const { gifs, isLoading, loadError, emptySearch } = useGifs({ keyword })
 
   if (isLoading) {
     return (
@@ -19,7 +20,7 @@ const Home = () => {
     )
   }
 
-  if (hasError) {
+  if (loadError) {
     return (
       <div className="fullscreen-container">
         <h2 className="header-text">No hay GIFs</h2>
@@ -28,11 +29,31 @@ const Home = () => {
     )
   }
 
+  if (emptySearch) {
+    return (
+      <div className="container">
+        <Header />
+        <div className="searchbar-container">
+          <SearchBar setKeyword={setKeyword} />
+        </div>
+        <div className="text-container">
+          <img src={arrow} alt="flecha" className="flecha" />
+          <h2 className="header-text">Los guif más trendings del momento</h2>
+        </div>
+        {/* TODO extraer a componente */}
+        <div className="fullscreen-container">
+          <h2 className="header-text">No hay GIFs</h2>
+          <img src={payaso} alt="payaso" width={150} height={150} />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="container">
       <Header />
       <div className="searchbar-container">
-        <SearchBar />
+        <SearchBar setKeyword={setKeyword} />
       </div>
       <div className="text-container">
         <img src={arrow} alt="flecha" className="flecha" />
