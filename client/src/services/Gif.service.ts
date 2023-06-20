@@ -6,10 +6,10 @@ const apiUrl = 'http://192.168.2.19:3000'
 export const GifService = {
   fetch: async () => {
     try {
-      const response = await fetch(`${apiUrl}/api/memes`)
+      const response = await fetch(`${apiUrl}/api/gifs`)
       const gifsResponse = await response.json()
-      const memes: GifDTO[] = gifsResponse.memes
-      return memes
+      const gifs: GifDTO[] = gifsResponse.gifs
+      return gifs
     } catch (error) {
       throw error
     }

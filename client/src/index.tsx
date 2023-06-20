@@ -5,7 +5,7 @@ import './index.css'
 import Home from './pages/Home/Home'
 import reportWebVitals from './reportWebVitals'
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'test') {
   const { worker } = require('./mocks/browser')
   worker.start()
 }

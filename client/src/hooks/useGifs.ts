@@ -11,10 +11,13 @@ const useGifs = () => {
   useEffect(() => {
     ;(async () => {
       try {
-        const memes = await GifService.fetch()
-        if (memes !== undefined) {
-          const mappedGifs = GifService.map(memes)
+        const gifs = await GifService.fetch()
+        const hasGifs = gifs.length > 0
+        if (hasGifs) {
+          const mappedGifs = GifService.map(gifs)
           setGifs(mappedGifs)
+        } else {
+          setHasError(true)
         }
       } catch {
         setHasError(true)
