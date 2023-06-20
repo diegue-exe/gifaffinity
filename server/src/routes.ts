@@ -14,8 +14,9 @@ routes.get("/search", async (req, res) => {
   const db = req.context.db;
   const keyword = req.query.keyword?.toString();
   const memes = await db.get("memes").value();
+  const hasKeyword = keyword !== undefined;
 
-  if (keyword !== undefined) {
+  if (hasKeyword) {
     const result = memes.filter((meme) =>
       meme.title.toLowerCase().includes(keyword.toLowerCase())
     );
