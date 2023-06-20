@@ -2,26 +2,25 @@ import { Router } from "express";
 
 export const routes = Router();
 
-//TODO /gifs mejor
-routes.get("/memes", (req, res) => {
+routes.get("/gifs", (req, res) => {
   const db = req.context.db;
-  const memes = db.get("memes").take(50);
+  const gifs = db.get("gifs").take(50);
   res.set("Access-Control-Allow-Origin", "*");
-  res.json({ memes: memes }).status(200);
+  res.json({ gifs: gifs }).status(200);
 });
 
 routes.get("/search", async (req, res) => {
   const db = req.context.db;
   const keyword = req.query.keyword?.toString();
-  const memes = await db.get("memes").value();
+  const gifs = await db.get("gifs").value();
   const hasKeyword = keyword !== undefined;
 
   if (hasKeyword) {
-    const result = memes.filter((meme) =>
-      meme.title.toLowerCase().includes(keyword.toLowerCase())
+    const result = gifs.filter((gif) =>
+      gif.title.toLowerCase().includes(keyword.toLowerCase())
     );
     res.set("Access-Control-Allow-Origin", "*");
-    res.json({ memes: result }).status(200);
+    res.json({ gifs: result }).status(200);
   } else {
     res.status(404);
   }

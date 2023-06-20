@@ -1,4 +1,4 @@
-export interface Meme {
+export interface Gif {
   id: string;
   type: string;
   slug: string;

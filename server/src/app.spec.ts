@@ -5,9 +5,9 @@ import Memory from "lowdb/adapters/Memory";
 import lowdb from "lowdb";
 import { Express } from "express";
 import dbData from "./fixtures/db.json";
-import { Meme } from "./models/Meme";
+import { Gif } from "./models/Gif";
 
-describe("/api/memes", () => {
+describe("/api/gifs", () => {
   let app: Express;
 
   beforeEach(() => {
@@ -20,18 +20,18 @@ describe("/api/memes", () => {
   });
 
   it("endpoint exists", async () => {
-    await request(app).get("/api/memes").expect(200);
+    await request(app).get("/api/gifs").expect(200);
   });
 
   it("returns an array", async () => {
-    const response = await request(app).get("/api/memes");
-    expect(response.body.memes).toBeInstanceOf(Array);
+    const response = await request(app).get("/api/gifs");
+    expect(response.body.gifs).toBeInstanceOf(Array);
   });
 
-  it("returns an array with 50 memes", async () => {
+  it("returns an array with 50 gifs", async () => {
     // Si necesitase auth por ejemplo se podría hacer una cookie noAuth o quizás una key para los test unicamente
-    const response = await request(app).get("/api/memes");
-    expect(response.body.memes).toHaveLength(50);
+    const response = await request(app).get("/api/gifs");
+    expect(response.body.gifs).toHaveLength(50);
   });
 });
 
@@ -51,14 +51,14 @@ describe("/api/search", () => {
 
   it("returns an array", async () => {
     const response = await request(app).get("/api/search?keyword=cat");
-    expect(response.body.memes).toBeInstanceOf(Array);
+    expect(response.body.gifs).toBeInstanceOf(Array);
   });
 
   it("returns an array with cats", async () => {
     const response = await request(app).get("/api/search?keyword=cat");
-    const memes: Meme[] = await response.body.memes;
-    memes.forEach((meme: Meme) => {
-      expect(meme.title.toLowerCase()).toContain("cat");
+    const gifs: Gif[] = await response.body.gifs;
+    gifs.forEach((gif: Gif) => {
+      expect(gif.title.toLowerCase()).toContain("cat");
     });
   });
 });
