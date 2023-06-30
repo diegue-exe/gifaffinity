@@ -31,6 +31,7 @@ export const GifService = {
       const gifs: GifDTO[] = gifsResponse.gifs
       return gifs
     } catch (error) {
+      console.error(error)
       throw error
     }
   },

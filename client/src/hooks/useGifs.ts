@@ -27,7 +27,8 @@ const useGifs = ({ keyword }: { keyword: string }) => {
         } else {
           setEmptySearch(false)
         }
-      } catch {
+      } catch (error) {
+        console.error(error)
         setLoadError(true)
       } finally {
         setIsLoading(false)
