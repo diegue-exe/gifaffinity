@@ -1,0 +1,26 @@
+name: Deploy to Firebase Hosting on push
+run-name: The app is being deployed 🚀
+on: [push]
+jobs:
+  build_and_preview:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: client
+    steps:
+      - name: Checkout main 
+        uses: actions/checkout@main
+
+      - name: Set up NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+
+      - name: Install dependencies and build
+        run: npm ci && npm run build
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GIFAFFINITY_D109C }}'
+          projectId: gifaffinity-d109c
