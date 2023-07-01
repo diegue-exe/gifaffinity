@@ -1,6 +1,6 @@
 name: Deploy to Firebase Hosting on push
 run-name: The app is being deployed 🚀
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
