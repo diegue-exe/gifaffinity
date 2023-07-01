@@ -5,7 +5,17 @@ jobs:
   code-checker:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🍏 Testing the code"
-      - run: cd ../../client
+      - name: Checkout under $GITHUB_WORKSPACE
+        uses: actions/checkout@main
+
+      - name: Set up NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+
+      - name: Install all dependencies
+        run: npm install
+        
+      - run: cd client
       - run: npm test
       - run: npm run lint-staged
