@@ -1,4 +1,4 @@
-name: BikoSchool Code Checker
+name: BikoSchool Code Checker 🤡
 run-name: ${{ github.actor }} is testing the code 🚀
 on: [push]
 jobs:
@@ -8,7 +8,7 @@ jobs:
       run:
         working-directory: client
     steps:
-      - name: Checkout main
+      - name: Checkout main 
         uses: actions/checkout@main
 
       - name: Set up NodeJS
@@ -16,11 +16,11 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install repository dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Install all client dependencies
-        run: npm install
+      - name: Run tests 🧪
+        run: npm run test
 
-      - run: npm run test
-      - run: npm run lint-staged
+      - name: Run LintStaged ✅
+        run: npm run lint-staged
