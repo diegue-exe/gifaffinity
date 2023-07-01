@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🍏 Testing the code"
-      - run: cd client
+      - run: cd ../../client
       - run: npm test
       - run: npm run lint-staged
