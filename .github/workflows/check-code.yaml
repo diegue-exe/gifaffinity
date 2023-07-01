@@ -24,3 +24,6 @@ jobs:
 
       - name: Run LintStaged ✅
         run: npm run lint-staged
+
+      - name: Build project
+        run: npm run build
