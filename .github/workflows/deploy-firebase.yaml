@@ -28,3 +28,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GIFAFFINITY_D109C }}'
           projectId: gifaffinity-d109c
+          channelId: live
