@@ -40,7 +40,6 @@ const Home = () => {
           <img src={arrow} alt="flecha" className="flecha" />
           <h2 className="header-text">Los guif más trendings del momento</h2>
         </div>
-        {/* TODO extraer a componente */}
         <div className="error-container">
           <img src={payaso} alt="payaso" width={300} height={300} />
           <h2 className="header-text">
