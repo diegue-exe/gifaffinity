@@ -1,51 +1,51 @@
 :root {
-    /* Max Width */
-    --maxWidth-mobile: 100%;
-    --maxWidth-tablet: 100%;
-    --maxWidth-desktop: 100%;
-    --maxWidth-desktopLarge: 70.75rem;
-    
-    /* Gap */
-    --lateralGap-mobile: 1.5rem;
-    --lateralGap-desktop: 3rem;
-    
-    /* Spacing */
-    --spacing-xtiny: 0.25rem;
-    --spacing-tiny: 0.5rem;
-    --spacing-small: 0.75rem;
-    --spacing-mini: 1rem;
-    --spacing-base: 1.5rem;
-    --spacing-medium: 2rem;
-    --spacing-large: 3rem;
-    --spacing-xlarge: 4rem;
-    --spacing-huge: 6rem;
-    
-    /* Font */
-    --font-small : 0.79rem;
-    --font-base: 1rem;
-    --font-h4 :1.125rem;
-    --font-h3 : 1.602rem;
-    --font-h2:2.276rem;
-    --font-h1:2.614rem;
+  /* Max Width */
+  --maxWidth-mobile: 100%;
+  --maxWidth-tablet: 100%;
+  --maxWidth-desktop: 100%;
+  --maxWidth-desktopLarge: 70.75rem;
 
-    /* Lineheight */
-    --lineheight-small: 1.063rem;
-    --lineheight-base: 1.375rem;
-    --lineheight-h4: 1.563rem;
-    --lineheight-h3: 2.188rem;
-    --lineheight-h2: 3.125rem;
-    --lineheight-h1: 3.563rem;
+  /* Gap */
+  --lateralGap-mobile: 1.5rem;
+  --lateralGap-desktop: 3rem;
 
-    /* Colors */
-    --purple: #9933FF;
-    --lightRed: #FF6666;
-    --lightBlue: #00CCFF;
-    --lightGreen: #00FF99;
-    --lightYellow: #FFF9AA;
-    --blue: #4158D0;
-    --pink: #C850C0;
-    --yellow: #ffcc70;
-    --black: #000000;
-    --grey: #999999;
-    --white: #FFFFFF;
+  /* Spacing */
+  --spacing-xtiny: 0.25rem;
+  --spacing-tiny: 0.5rem;
+  --spacing-small: 0.75rem;
+  --spacing-mini: 1rem;
+  --spacing-base: 1.5rem;
+  --spacing-medium: 2rem;
+  --spacing-large: 3rem;
+  --spacing-xlarge: 4rem;
+  --spacing-huge: 6rem;
+
+  /* Font */
+  --font-small: 0.79rem;
+  --font-base: 1rem;
+  --font-h4: 1.125rem;
+  --font-h3: 1.602rem;
+  --font-h2: 2.276rem;
+  --font-h1: 2.614rem;
+
+  /* Lineheight */
+  --lineheight-small: 1.063rem;
+  --lineheight-base: 1.375rem;
+  --lineheight-h4: 1.563rem;
+  --lineheight-h3: 2.188rem;
+  --lineheight-h2: 3.125rem;
+  --lineheight-h1: 3.563rem;
+
+  /* Colors */
+  --purple: #9933ff;
+  --lightRed: #ff6666;
+  --lightBlue: #00ccff;
+  --lightGreen: #00ff99;
+  --lightYellow: #fff9aa;
+  --blue: #4158d0;
+  --pink: #c850c0;
+  --yellow: #ffcc70;
+  --black: #000000;
+  --grey: #999999;
+  --white: #ffffff;
 }

@@ -61,7 +61,6 @@ const Home = () => {
         <img src={arrow} alt="flecha" className="flecha" />
         <h2 className="header-text">Los guif más trendings del momento</h2>
       </div>
-
       <div className="gif-container">
         {gifs.map((gif) => (
           <Gif key={gif.id} route={gif.url} alt={gif.name} />

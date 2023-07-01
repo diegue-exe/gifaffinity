@@ -1,13 +1,12 @@
-
 .search-container {
   display: flex;
   width: 100%;
   justify-content: end;
 }
 
-.search-container .icon{
-  position:absolute;
-  cursor:pointer;
+.search-container .icon {
+  position: absolute;
+  cursor: pointer;
   width: 47px;
   height: 47px;
   justify-self: end;

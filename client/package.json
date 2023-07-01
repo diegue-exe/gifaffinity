@@ -19,8 +19,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --watchAll=false",
+    "eject": "react-scripts eject",
+    "lint-staged": "npx lint-staged"
   },
   "eslintConfig": {
     "extends": [
@@ -41,9 +42,16 @@
     ]
   },
   "devDependencies": {
+    "lint-staged": "^13.2.3",
     "msw": "^1.2.1"
   },
   "msw": {
     "workerDirectory": "public"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint . --fix",
+      "prettier --write"
+    ]
   }
 }

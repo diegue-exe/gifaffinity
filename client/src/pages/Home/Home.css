@@ -22,8 +22,8 @@ html {
   margin-bottom: 2rem;
 }
 
-.searchbar-container{
-  display:flex;
+.searchbar-container {
+  display: flex;
 }
 
 .header-text {
@@ -34,7 +34,7 @@ html {
   font-weight: 700;
 }
 
-@media screen and (max-width: 70.75rem){
+@media screen and (max-width: 70.75rem) {
   .text-container {
     gap: 0px;
     justify-content: center;
@@ -42,7 +42,7 @@ html {
   .container {
     padding: 1.5rem;
   }
-  .flecha{
+  .flecha {
     width: 30px;
   }
   .header-text {
@@ -65,7 +65,7 @@ html {
   gap: 16px;
   justify-content: center;
   align-items: center;
-} 
+}
 
 .error-container {
   display: flex;
@@ -83,20 +83,19 @@ html {
   opacity: 0.8;
 }
 .loader:before {
-  content: "{";
+  content: '{';
   display: inline-block;
   animation: pulse 0.4s alternate infinite ease-in-out;
 }
 .loader:after {
-  content: "}";
+  content: '}';
   display: inline-block;
   animation: pulse 0.4s 0.3s alternate infinite ease-in-out;
 }
 
 @keyframes pulse {
   to {
-    transform: scale(.8);
+    transform: scale(0.8);
     opacity: 0.5;
   }
 }
-    

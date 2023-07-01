@@ -6,5 +6,5 @@ type Props = {
 }
 
 export const Gif: FC<Props> = ({ route, alt }) => {
-  return <img className="gif" src={route}   alt={alt} />
+  return <img className="gif" src={route} alt={alt} />
 }
