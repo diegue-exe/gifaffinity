@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { GifService } from '../services/Gif.service'
 import { GifModel } from '../models/GifModel'
-import { GifDTO } from '../models/GifDTO'
 
 const useGifs = ({ keyword }: { keyword: string }) => {
   const [gifs, setGifs] = useState<GifModel[]>([])
@@ -11,16 +10,10 @@ const useGifs = ({ keyword }: { keyword: string }) => {
 
   useEffect(() => {
     ;(async () => {
-      let gifs: GifDTO[]
+      let gifs: GifModel[]
       try {
-        if (keyword === '') {
-          gifs = await GifService.fetch()
-        } else {
-          gifs = await GifService.search(keyword)
-        }
-        const mappedGifs = GifService.map(gifs)
-        setGifs(mappedGifs)
-
+        gifs = await GifService.getGifs(keyword)
+        setGifs(gifs)
         const hasGifs = gifs.length > 0
         if (!hasGifs) {
           setEmptySearch(true)
@@ -28,7 +21,6 @@ const useGifs = ({ keyword }: { keyword: string }) => {
           setEmptySearch(false)
         }
       } catch (error) {
-        console.error(error)
         setLoadError(true)
       } finally {
         setIsLoading(false)
