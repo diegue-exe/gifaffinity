@@ -5,31 +5,7 @@ import { server } from '../../mocks/server'
 import userEvent from '@testing-library/user-event'
 import { catGifs } from '../../mocks/fixtures/gifs'
 
-const catGif = {
-  id: 'kefZA9vr3rKCJThLjL',
-  type: 'gif',
-  slug: 'moodman-cat-2020-wack-kefZA9vr3rKCJThLjL',
-  giphyUrl: 'https://giphy.com/gifs/moodman-cat-2020-wack-kefZA9vr3rKCJThLjL',
-  title: 'Cat GIF by MOODMAN',
-  source_tld: 'media.giphy.com',
-  source_post_url: 'https://media.giphy.com/media/6uMqzcbWRhoT6/giphy.gif',
-  import_datetime: '2020-08-21 01:19:13',
-  username: '',
-  images: {
-    original: {
-      width: '480',
-      height: '360',
-      url: 'https://media0.giphy.com/media/kefZA9vr3rKCJThLjL/giphy.gif?cid=be655fb7f245f7d29df0fc743b70e3ee884dbaf31956e789&rid=giphy.gif',
-    },
-    small: {
-      width: '200',
-      height: '150',
-      url: 'https://media0.giphy.com/media/kefZA9vr3rKCJThLjL/200w.gif?cid=be655fb7f245f7d29df0fc743b70e3ee884dbaf31956e789&rid=200w.gif',
-    },
-  },
-  tags: ['#cat', '#2020', '#wack'],
-}
-
+const apiPath = 'http://192.168.2.19:3000'
 describe('Home', () => {
   it('gifs are shown in the document', async () => {
     render(<Home />)
@@ -44,7 +20,6 @@ describe('Home', () => {
     ).toBeInTheDocument()
   })
 
-  const apiPath = 'http://192.168.2.19:3000'
   it('shows error when there are no gifs available', async () => {
     server.use(
       rest.get(`${apiPath}/api/gifs`, (req, res, ctx) => {
@@ -55,15 +30,15 @@ describe('Home', () => {
     expect(await screen.findByText('No hay GIFs')).toBeInTheDocument()
   })
 
+  // TODO refactor para que compruebe únicamente que se manda al endpoint
   it('shows filtered gifs on search input change', async () => {
     const keyword = 'cat'
 
     server.use(
       rest.get(`${apiPath}/api/search`, (req, res, ctx) => {
-        console.log('hola buenas tardes')
         const keywordParameter = req.url.searchParams.get('keyword')
         if (keywordParameter === keyword) {
-          return res(ctx.json({ gifs: [catGif] }))
+          return res(ctx.json({ gifs: catGifs }))
         }
         return res(ctx.json({ gifs: [] }))
       }),
@@ -74,9 +49,10 @@ describe('Home', () => {
       '¿Qué quieres buscar? ¡Encuentralo!',
     )
     userEvent.type(input, keyword)
-    screen.debug() //eslint-disable-line
     expect(
       await screen.findByRole('img', { name: 'Cat GIF by MOODMAN' }),
     ).toBeInTheDocument()
   })
+  // TODO refactor para que compruebe que se manda al endpoint de search cuando hay keyword y al de gifs si no la hay
+  it('shows all gifs again when the input field is cleared', () => {})
 })
