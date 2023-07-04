@@ -5,7 +5,7 @@ import { server } from '../../mocks/server'
 import userEvent from '@testing-library/user-event'
 import { catGifs } from '../../mocks/fixtures/gifs'
 
-const apiPath = 'http://192.168.2.19:3000'
+const apiPath = 'http://localhost:3000'
 describe('Home', () => {
   it('gifs are shown in the document', async () => {
     render(<Home />)
