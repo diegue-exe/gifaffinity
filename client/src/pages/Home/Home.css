@@ -93,6 +93,10 @@ html {
   animation: pulse 0.4s 0.3s alternate infinite ease-in-out;
 }
 
+.error-container{
+  border-radius: 1rem;
+}
+
 @keyframes pulse {
   to {
     transform: scale(0.8);
