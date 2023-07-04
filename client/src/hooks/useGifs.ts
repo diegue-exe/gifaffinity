@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { GifService } from '../services/Gif.service'
-import { GifModel } from '../domain/GifModel'
+import { GifService } from '../core/services/Gif.service'
+import { GifModel } from '../core/domain/GifModel'
 
 const useGifs = ({ keyword }: { keyword: string }) => {
   const [gifs, setGifs] = useState<GifModel[]>([])
@@ -10,15 +10,19 @@ const useGifs = ({ keyword }: { keyword: string }) => {
 
   useEffect(() => {
     ;(async () => {
-      let gifs: GifModel[]
+      let gifs: GifModel[] | undefined
       try {
         gifs = await GifService.getGifs(keyword)
-        setGifs(gifs)
-        const hasGifs = gifs.length > 0
-        if (!hasGifs) {
-          setEmptySearch(true)
+        if (gifs === undefined) {
+          setLoadError(true)
         } else {
-          setEmptySearch(false)
+          setGifs(gifs)
+          const hasGifs = gifs.length > 0
+          if (!hasGifs) {
+            setEmptySearch(true)
+          } else {
+            setEmptySearch(false)
+          }
         }
       } catch (error) {
         setLoadError(true)
