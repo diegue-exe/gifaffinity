@@ -1,5 +1,5 @@
-import { GifDTO } from '../models/GifDTO'
-import { GifModel } from '../models/GifModel'
+import { GifDTO } from '../infrastructure/GifDTO'
+import { GifModel } from '../domain/GifModel'
 
 const apiUrl = 'http://localhost:3000'
 

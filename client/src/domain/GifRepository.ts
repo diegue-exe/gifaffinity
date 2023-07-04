@@ -1,6 +1,6 @@
-import { GifDTO } from '../models/GifDTO'
+import { GifModel } from './GifModel'
 
 export interface GifRepository {
-  getAllGifs: () => Promise<GifDTO[] | undefined>
-  searchGifs: (search: string) => Promise<GifDTO[] | undefined>
+  getAllGifs: () => Promise<GifModel[] | undefined>
+  searchGifs: (search: string) => Promise<GifModel[] | undefined>
 }

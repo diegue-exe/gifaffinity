@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { GifService } from '../services/Gif.service'
-import { GifModel } from '../models/GifModel'
+import { GifModel } from '../domain/GifModel'
 
 const useGifs = ({ keyword }: { keyword: string }) => {
   const [gifs, setGifs] = useState<GifModel[]>([])
