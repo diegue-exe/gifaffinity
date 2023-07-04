@@ -1,7 +1,7 @@
 // src/mocks/handlers.js
 import { rest } from 'msw'
 
-const apiPath = 'http://192.168.2.19:3000'
+const apiPath = 'http://localhost:3000'
 
 export const handlers = [
   rest.get(`${apiPath}/api/gifs`, (req, res, ctx) => {

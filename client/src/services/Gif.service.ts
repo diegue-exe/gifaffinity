@@ -1,7 +1,7 @@
 import { GifDTO } from '../models/GifDTO'
 import { GifModel } from '../models/GifModel'
 
-const apiUrl = 'http://192.168.2.19:3000'
+const apiUrl = 'http://localhost:3000'
 
 const mapGifs = (gifs: GifDTO[]) => {
   return gifs.map((gif): GifModel => {
